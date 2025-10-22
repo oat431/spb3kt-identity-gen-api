@@ -1,0 +1,382 @@
+[
+  {
+    "code": 10,
+    "name": "Bangkok",
+    "districtAmt": 50
+  },
+  {
+    "code": 11,
+    "name": "Samut Prakan",
+    "districtAmt": 6
+  },
+  {
+    "code": 12,
+    "name": "Nonthaburi",
+    "districtAmt": 6
+  },
+  {
+    "code": 13,
+    "name": "Pathum Thani",
+    "districtAmt": 7
+  },
+  {
+    "code": 14,
+    "name": "Phra Nakhon Si Ayutthaya",
+    "districtAmt": 16
+  },
+  {
+    "code": 15,
+    "name": "Ang Thong",
+    "districtAmt": 7
+  },
+  {
+    "code": 16,
+    "name": "Lop Buri",
+    "districtAmt": 11
+  },
+  {
+    "code": 17,
+    "name": "Sing Buri",
+    "districtAmt": 6
+  },
+  {
+    "code": 18,
+    "name": "Chai Nat",
+    "districtAmt": 8
+  },
+  {
+    "code": 19,
+    "name": "Saraburi",
+    "districtAmt": 13
+  },
+  {
+    "code": 20,
+    "name": "Chon Buri",
+    "districtAmt": 11
+  },
+  {
+    "code": 21,
+    "name": "Rayong",
+    "districtAmt": 8
+  },
+  {
+    "code": 22,
+    "name": "Chanthaburi",
+    "districtAmt": 10
+  },
+  {
+    "code": 23,
+    "name": "Trat",
+    "districtAmt": 7
+  },
+  {
+    "code": 24,
+    "name": "Chachoengsao",
+    "districtAmt": 11
+  },
+  {
+    "code": 25,
+    "name": "Prachin Buri",
+    "districtAmt": 13
+  },
+  {
+    "code": 26,
+    "name": "Nakhon Nayok",
+    "districtAmt": 4
+  },
+  {
+    "code": 27,
+    "name": "Sa Kaeo",
+    "districtAmt": 9
+  },
+  {
+    "code": 30,
+    "name": "Nakhon Ratchasima",
+    "districtAmt": 32
+  },
+  {
+    "code": 31,
+    "name": "Buri Ram",
+    "districtAmt": 23
+  },
+  {
+    "code": 32,
+    "name": "Surin",
+    "districtAmt": 17
+  },
+  {
+    "code": 33,
+    "name": "Si Sa Ket",
+    "districtAmt": 22
+  },
+  {
+    "code": 34,
+    "name": "Ubon Ratchathani",
+    "districtAmt": 33
+  },
+  {
+    "code": 35,
+    "name": "Yasothon",
+    "districtAmt": 9
+  },
+  {
+    "code": 36,
+    "name": "Chaiyaphum",
+    "districtAmt": 16
+  },
+  {
+    "code": 37,
+    "name": "Amnat Charoen",
+    "districtAmt": 7
+  },
+  {
+    "code": 39,
+    "name": "Nong Bua Lam Phu",
+    "districtAmt": 6
+  },
+  {
+    "code": 40,
+    "name": "Khon Kaen",
+    "districtAmt": 25
+  },
+  {
+    "code": 41,
+    "name": "Udon Thani",
+    "districtAmt": 25
+  },
+  {
+    "code": 42,
+    "name": "Loei",
+    "districtAmt": 14
+  },
+  {
+    "code": 43,
+    "name": "Nong Khai",
+    "districtAmt": 17
+  },
+  {
+    "code": 44,
+    "name": "Maha Sarakham",
+    "districtAmt": 13
+  },
+  {
+    "code": 45,
+    "name": "Roi Et",
+    "districtAmt": 20
+  },
+  {
+    "code": 46,
+    "name": "Kalasin",
+    "districtAmt": 18
+  },
+  {
+    "code": 47,
+    "name": "Sakon Nakhon",
+    "districtAmt": 18
+  },
+  {
+    "code": 48,
+    "name": "Nakhon Phanom",
+    "districtAmt": 12
+  },
+  {
+    "code": 49,
+    "name": "Mukdahan",
+    "districtAmt": 7
+  },
+  {
+    "code": 50,
+    "name": "Chiang Mai",
+    "districtAmt": 24
+  },
+  {
+    "code": 51,
+    "name": "Lamphun",
+    "districtAmt": 8
+  },
+  {
+    "code": 52,
+    "name": "Lampang",
+    "districtAmt": 13
+  },
+  {
+    "code": 53,
+    "name": "Uttaradit",
+    "districtAmt": 9
+  },
+  {
+    "code": 54,
+    "name": "Phrae",
+    "districtAmt": 8
+  },
+  {
+    "code": 55,
+    "name": "Nan",
+    "districtAmt": 15
+  },
+  {
+    "code": 56,
+    "name": "Phayao",
+    "districtAmt": 9
+  },
+  {
+    "code": 57,
+    "name": "Chiang Rai",
+    "districtAmt": 18
+  },
+  {
+    "code": 58,
+    "name": "Mae Hong Son",
+    "districtAmt": 7
+  },
+  {
+    "code": 60,
+    "name": "Nakhon Sawan",
+    "districtAmt": 15
+  },
+  {
+    "code": 61,
+    "name": "Uthai Thani",
+    "districtAmt": 8
+  },
+  {
+    "code": 62,
+    "name": "Kamphaeng Phet",
+    "districtAmt": 11
+  },
+  {
+    "code": 63,
+    "name": "Tak",
+    "districtAmt": 9
+  },
+  {
+    "code": 64,
+    "name": "Sukhothai",
+    "districtAmt": 9
+  },
+  {
+    "code": 65,
+    "name": "Phitsanulok",
+    "districtAmt": 9
+  },
+  {
+    "code": 66,
+    "name": "Phichit",
+    "districtAmt": 12
+  },
+  {
+    "code": 67,
+    "name": "Phetchabun",
+    "districtAmt": 11
+  },
+  {
+    "code": 70,
+    "name": "Ratchaburi",
+    "districtAmt": 9
+  },
+  {
+    "code": 71,
+    "name": "Kanchanaburi",
+    "districtAmt": 13
+  },
+  {
+    "code": 72,
+    "name": "Suphan Buri",
+    "districtAmt": 10
+  },
+  {
+    "code": 73,
+    "name": "Nakhon Pathom",
+    "districtAmt": 7
+  },
+  {
+    "code": 74,
+    "name": "Samut Sakhon",
+    "districtAmt": 3
+  },
+  {
+    "code": 75,
+    "name": "Samut Songkhram",
+    "districtAmt": 3
+  },
+  {
+    "code": 76,
+    "name": "Phetchaburi",
+    "districtAmt": 8
+  },
+  {
+    "code": 77,
+    "name": "Prachuap Khiri Khan",
+    "districtAmt": 8
+  },
+  {
+    "code": 80,
+    "name": "Nakhon Si Thammarat",
+    "districtAmt": 23
+  },
+  {
+    "code": 81,
+    "name": "Krabi",
+    "districtAmt": 8
+  },
+  {
+    "code": 82,
+    "name": "Phang Nga",
+    "districtAmt": 8
+  },
+  {
+    "code": 83,
+    "name": "Phuket",
+    "districtAmt": 3
+  },
+  {
+    "code": 84,
+    "name": "Surat Thani",
+    "districtAmt": 19
+  },
+  {
+    "code": 85,
+    "name": "Ranong",
+    "districtAmt": 5
+  },
+  {
+    "code": 86,
+    "name": "Chumphon",
+    "districtAmt": 8
+  },
+  {
+    "code": 90,
+    "name": "Songkhla",
+    "districtAmt": 16
+  },
+  {
+    "code": 91,
+    "name": "Satun",
+    "districtAmt": 7
+  },
+  {
+    "code": 92,
+    "name": "Trang",
+    "districtAmt": 10
+  },
+  {
+    "code": 93,
+    "name": "Phatthalung",
+    "districtAmt": 11
+  },
+  {
+    "code": 94,
+    "name": "Pattani",
+    "districtAmt": 12
+  },
+  {
+    "code": 95,
+    "name": "Yala",
+    "districtAmt": 8
+  },
+  {
+    "code": 96,
+    "name": "Narathiwat",
+    "districtAmt": 13
+  }
+]

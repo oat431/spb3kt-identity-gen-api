@@ -6,4 +6,4 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class ResponseDTO<T>(
     val data: T?,
     val error : ErrorDTO?,
-) {}
+)

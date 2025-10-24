@@ -3,6 +3,7 @@ plugins {
     kotlin("plugin.spring") version "1.9.25"
     id("org.springframework.boot") version "3.5.6"
     id("io.spring.dependency-management") version "1.1.7"
+    id("org.sonarqube") version "6.3.1.5724"
 }
 
 group = "panomete.project"
@@ -47,7 +48,7 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
     // openapi lib
-    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.13")
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:${project.findProperty("springdocVersion")?.toString()}")
 }
 
 kotlin {
@@ -58,4 +59,12 @@ kotlin {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+sonar {
+    properties {
+        property("sonar.projectKey", project.findProperty("sonarProjectKey")?.toString() ?: "")
+        property("sonar.host.url", project.findProperty("sonarHost")?.toString() ?: "")
+        property("sonar.token", project.findProperty("sonarToken")?.toString() ?: "")
+    }
 }

@@ -32,38 +32,38 @@ class IdentityServiceImpl : IdentityService {
     }
 
     private fun genIDNumber(): String {
-        val CITIZEN_TYPE = if(random.nextBoolean()) "1" else "3"
+        val cType = if(random.nextBoolean()) "1" else "3"
 
         var provinceCode: Int
         do{
             provinceCode = random.nextInt(10, 97)
         } while (missingCode.contains(provinceCode))
-        val CITIZEN_PROVINCE_CODE = "$provinceCode"
+        val cProvinceCode = "$provinceCode"
 
         val cityCode: Int = (provinces.find { it.code == provinceCode })?.districtAmt ?: 1
-        val CITIZEN_CITY_CODE = String.format("%02d", cityCode)
+        val cCityCode = String.format("%02d", cityCode)
 
-        val CITIZEN_SEQ1 = String.format("%05d", random.nextInt(100000))
-        val CITIZEN_SEQ2 = String.format("%02d", random.nextInt(100))
+        val cSeq1 = String.format("%05d", random.nextInt(100000))
+        val cSeq2 = String.format("%02d", random.nextInt(100))
 
-        val idWithoutChecksum = "$CITIZEN_TYPE$CITIZEN_PROVINCE_CODE$CITIZEN_CITY_CODE$CITIZEN_SEQ1$CITIZEN_SEQ2"
+        val idWithoutChecksum = "$cType$cProvinceCode$cCityCode$cSeq1$cSeq2"
 
-        val CITIZEN_CHECKSUM = genCheckSum(idWithoutChecksum)
-        return "${CITIZEN_TYPE}-${CITIZEN_PROVINCE_CODE}${CITIZEN_CITY_CODE}-${CITIZEN_SEQ1}-${CITIZEN_SEQ2}-${CITIZEN_CHECKSUM}"
+        val cCheckSum = genCheckSum(idWithoutChecksum)
+        return "${cType}-${cProvinceCode}${cCityCode}-${cSeq1}-${cSeq2}-${cCheckSum}"
     }
 
     private fun genCheckSum(idNumber: String): Int {
         val prepareString = idNumber.replace("-", "")
-        val CHECK_SUM_BASE_MULTIPLIER = 13
-        val ID_LENGTH_WITHOUT_CHECKSUM = 12
-        val CHECK_SUM_MODULUS = 11
-        val GET_ONLY_UNIT_MODULUS = 10
+        val checkSumBaseMultiplier = 13
+        val idLengthWithoutCheckSUm = 12
+        val checkSumModulus = 11
+        val getOnlyUnitModulus = 10
         var sum = 0;
-        for (i in 0..<ID_LENGTH_WITHOUT_CHECKSUM) {
+        for (i in 0..<idLengthWithoutCheckSUm) {
             val digit = Character.getNumericValue(prepareString[i])
-            sum += digit * (CHECK_SUM_BASE_MULTIPLIER - i)
+            sum += digit * (checkSumBaseMultiplier - i)
         }
-        return (CHECK_SUM_MODULUS - (sum % CHECK_SUM_MODULUS)) % GET_ONLY_UNIT_MODULUS
+        return (checkSumModulus - (sum % checkSumModulus)) % getOnlyUnitModulus
     }
 
     override fun validateIDNumber(idNumber: String): Boolean {
@@ -73,9 +73,9 @@ class IdentityServiceImpl : IdentityService {
     }
 
     override fun isValidIDNumberInput(idNumber: String): Boolean {
-        val ID_NUMBER_LENGTH = 13
+        val idNumberLength = 13
         val checkString = idNumber.replace("-", "")
-        if (checkString.length != ID_NUMBER_LENGTH) {
+        if (checkString.length != idNumberLength) {
             return false
         }
         if (!checkString.all { it.isDigit() }) {

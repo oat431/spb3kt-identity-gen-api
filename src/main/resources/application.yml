@@ -8,6 +8,18 @@ spring:
     virtual:
       enabled: true
 
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    syntax-highlight:
+      theme: monokai
+      activated: true
+    try-it-out-enabled: true
+    tags-sorter: alpha
+    filter: true
+
 logging:
   level:
     root: info

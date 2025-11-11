@@ -2,7 +2,7 @@ spring:
   profiles:
     active: server
   application:
-    name: envprop
+    name: NEW_IDENTITY_SERVICE
   output:
     ansi:
       enabled: always
@@ -12,9 +12,9 @@ spring:
 
 springdoc:
   api-docs:
-    path: /api-docs
+    path: /api/v1/identity/api-docs
   swagger-ui:
-    path: /swagger-ui.html
+    path: /api/v1/identity/swagger-ui.html
     syntax-highlight:
       theme: monokai
       activated: true

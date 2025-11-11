@@ -1,0 +1,9 @@
+eureka:
+  instance:
+    appname: NEW-IDENTITY-SERVICE
+  client:
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://panomete-service-discovery:8761/eureka/
+    healthcheck:
+      enabled: true

@@ -1,0 +1,14 @@
+services:
+  identity:
+    build: .
+    image: panomete-new-identity
+    container_name: panomete-new-identity
+    restart: always
+    ports:
+      - "8001:8001"
+    networks:
+      - microservice-net
+
+networks:
+  microservice-net:
+    external: true

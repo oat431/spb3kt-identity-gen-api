@@ -3,6 +3,7 @@ package panomete.project.spb3kotlin.service
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import org.springframework.stereotype.Service
+import panomete.project.spb3kotlin.entity.Name
 import panomete.project.spb3kotlin.entity.Province
 import panomete.project.spb3kotlin.payload.request.IdentityRequest
 import panomete.project.spb3kotlin.payload.response.IdentityDTO
@@ -12,23 +13,48 @@ import kotlin.random.Random
 @Service
 class IdentityServiceImpl : IdentityService {
     var provinces: List<Province> = listOf()
+    var maleNames: List<Name> = listOf()
+    var femaleNames: List<Name> = listOf()
+    var lastNames: List<Name> = listOf()
     val random = Random(622115039)
     val missingCode : List<Int> = listOf(28,29,38,59,68,69,78,79,87,88,89)
 
     override fun genIdentity(request: IdentityRequest?): IdentityDTO {
-        loadJson()
+        loadProvince()
+        loadFirstNames()
+        loadLastNames()
         if(request != null) {
             return generateIdentity(request)
         }
         return generateRandomIdentity()
     }
 
-    private fun loadJson() {
+    private fun loadProvince() {
         val jsonPath = "/data/province.json"
         val provincesText = this::class.java.getResource(jsonPath)?.readText()
             ?: throw IllegalStateException("Cannot find provinces data file")
         val mapper= jacksonObjectMapper()
         provinces = mapper.readValue(provincesText,object : TypeReference<List<Province>>() {})
+    }
+
+    private fun loadFirstNames() {
+        val jsonPathMale = "/data/male_name.json"
+        val jsonPathFemale = "/data/female_name.json"
+        val maleNamesText = this::class.java.getResource(jsonPathMale)?.readText()
+            ?: throw IllegalStateException("Cannot find data file")
+        val femaleNamesText = this::class.java.getResource(jsonPathFemale)?.readText()
+            ?: throw IllegalStateException("Cannot find data file")
+        val mapper= jacksonObjectMapper()
+        maleNames = mapper.readValue(maleNamesText,object : TypeReference<List<Name>>() {})
+        femaleNames = mapper.readValue(femaleNamesText,object : TypeReference<List<Name>>() {})
+    }
+
+    private fun loadLastNames() {
+        val jsonPathLast = "/data/lastname.json"
+        val lastNamesText = this::class.java.getResource(jsonPathLast)?.readText()
+            ?: throw IllegalStateException("Cannot find data file")
+        val mapper= jacksonObjectMapper()
+        lastNames = mapper.readValue(lastNamesText,object : TypeReference<List<Name>>() {})
     }
 
     private fun genIDNumber(): String {
@@ -84,13 +110,60 @@ class IdentityServiceImpl : IdentityService {
         return true
     }
 
+    private fun genBirthDate(): LocalDateTime {
+        val currentYear = LocalDateTime.now().year
+        val year = random.nextInt(currentYear - 60, currentYear - 15)
+        val month = random.nextInt(1, 13)
+        val day = when (month) {
+            2 -> random.nextInt(1, 29)
+            4, 6, 9, 11 -> random.nextInt(1, 31)
+            else -> random.nextInt(1, 32)
+        }
+        return LocalDateTime.of(year, month, day, 0, 0)
+    }
+
+    private fun genTitle(age: Int, gender: Boolean) : String {
+        return if(age < 15) {
+            if(gender) {
+                "เด็กชาย"
+            } else {
+                "เด็กหญิง"
+            }
+        } else {
+            if(gender) {
+                "นาย"
+            } else {
+                "นางสาว"
+            }
+        }
+    }
+
+    private fun genFirstName(gender: Boolean) : Name {
+        return if(gender) {
+            maleNames[random.nextInt(maleNames.size)]
+        } else {
+            femaleNames[random.nextInt(femaleNames.size)]
+        }
+    }
+
+    private fun genLastName() : Name {
+        return lastNames[random.nextInt(lastNames.size)]
+    }
+
     private fun generateRandomIdentity(): IdentityDTO {
+        val nationalIdNumber = genIDNumber()
+        val birthDate = genBirthDate()
+        val age = LocalDateTime.now().year - birthDate.year
+        val gender = random.nextBoolean()
+        val title = genTitle(age, gender)
+        val firstName = genFirstName(gender)
+        val lastName = genLastName()
         return IdentityDTO(
-            nationalID = genIDNumber(),
-            title = "Mr.",
-            firstName = "John",
-            lastName = "Doe",
-            birthDate = LocalDateTime.of(1990, 1, 1, 0, 0)
+            nationalID = nationalIdNumber,
+            title = title,
+            firstName = firstName,
+            lastName = lastName,
+            birthDate = birthDate,
         )
     }
 
@@ -98,8 +171,14 @@ class IdentityServiceImpl : IdentityService {
         return IdentityDTO(
                 nationalID = "9876543210987",
                 title = "Ms.",
-                firstName = "Jane",
-                lastName = "Smith",
+                firstName = Name(
+                    nameEN = "Jane",
+                    nameTH = "เจน"
+                ),
+                lastName = Name(
+                    nameEN = "Doe",
+                    nameTH = "โด"
+                ),
                 birthDate = LocalDateTime.of(1985, 5, 15, 0, 0)
             )
     }

@@ -7,3 +7,14 @@ eureka:
       defaultZone: http://panomete-service-discovery:8761/eureka/
     healthcheck:
       enabled: true
+springdoc:
+  api-docs:
+    path: /api/v1/identity/api-docs
+  swagger-ui:
+    path: /api/v1/identity/swagger-ui.html
+    syntax-highlight:
+      theme: monokai
+      activated: true
+    try-it-out-enabled: true
+    tags-sorter: alpha
+    filter: true

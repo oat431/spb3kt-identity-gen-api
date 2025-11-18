@@ -1,6 +1,6 @@
 spring:
-#  profiles:
-#    active: server
+  profiles:
+    active: server
   application:
     name: NEW_IDENTITY_SERVICE
   output:

@@ -57,9 +57,8 @@ class IdentityServiceImpl : IdentityService {
         lastNames = mapper.readValue(lastNamesText,object : TypeReference<List<Name>>() {})
     }
 
-    private fun genIDNumber(): String {
-        val cType = if(random.nextBoolean()) "1" else "3"
-
+    private fun genIDNumber(day: Int,month : Int,year: Int): String {
+        val cType = if(day <= 31 && month <= 5 && year <= 1984) "3" else "1"
         var provinceCode: Int
         do{
             provinceCode = random.nextInt(10, 97)
@@ -151,9 +150,9 @@ class IdentityServiceImpl : IdentityService {
     }
 
     private fun generateRandomIdentity(): IdentityDTO {
-        val nationalIdNumber = genIDNumber()
         val birthDate = genBirthDate()
         val age = LocalDateTime.now().year - birthDate.year
+        val nationalIdNumber = genIDNumber(birthDate.dayOfMonth,birthDate.monthValue,birthDate.year)
         val gender = random.nextBoolean()
         val title = genTitle(age, gender)
         val firstName = genFirstName(gender)

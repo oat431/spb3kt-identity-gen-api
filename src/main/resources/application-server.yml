@@ -20,3 +20,11 @@ springdoc:
     try-it-out-enabled: true
     tags-sorter: alpha
     filter: true
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "health, info, metrics, features"

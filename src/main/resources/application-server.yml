@@ -1,6 +1,8 @@
 eureka:
   instance:
     appname: NEW-IDENTITY-SERVICE
+    status-page-url: https://gateway.panomete.com/api/v1/identity/actuator/info
+    health-check-url: https://gateway.panomete.com/api/v1/identity/actuator/health
   client:
     fetchRegistry: true
     serviceUrl:

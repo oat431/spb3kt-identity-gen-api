@@ -32,3 +32,9 @@ logging:
     console: "%clr(%d{${LOG_DATEFORMAT_PATTERN:yyyy-MM-dd HH:mm:ss.SSS Z}}){magenta} |  %clr(${LOG_LEVEL_PATTERN:%-5p}) | %clr(%-40.40logger{39}){cyan} | %clr(%-25.25M){yellow} | %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}"
 server:
   port: 8001
+
+info:
+  app:
+    name: New Identity API
+    description: "New Thai Identity Generator Service"
+    version: 1.0.0

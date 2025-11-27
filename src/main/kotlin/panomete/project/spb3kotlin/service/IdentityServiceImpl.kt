@@ -16,7 +16,7 @@ class IdentityServiceImpl : IdentityService {
     var maleNames: List<Name> = listOf()
     var femaleNames: List<Name> = listOf()
     var lastNames: List<Name> = listOf()
-    val random = Random(622115039)
+    val random = Random(System.currentTimeMillis())
     val missingCode : List<Int> = listOf(28,29,38,59,68,69,78,79,87,88,89)
 
     override fun genIdentity(request: IdentityRequest?): IdentityDTO {

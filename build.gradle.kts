@@ -1,7 +1,7 @@
 plugins {
-    kotlin("jvm") version "1.9.25"
-    kotlin("plugin.spring") version "1.9.25"
-    id("org.springframework.boot") version "3.5.6"
+    kotlin("jvm") version "2.3.0-RC2"
+    kotlin("plugin.spring") version "2.3.0-RC2"
+    id("org.springframework.boot") version "4.0.0"
     id("io.spring.dependency-management") version "1.1.7"
     id("org.sonarqube") version "6.3.1.5724"
 }
@@ -12,7 +12,7 @@ description = "spb3kotlin"
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(25)
     }
 }
 
@@ -46,7 +46,7 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok")
 
     // service discovery client
-    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:4.3.0")
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:5.0.0")
 
     // test lib
     testImplementation("org.springframework.boot:spring-boot-starter-test")
@@ -57,7 +57,7 @@ dependencies {
 
 kotlin {
     compilerOptions {
-        freeCompilerArgs.addAll("-Xjsr305=strict")
+        freeCompilerArgs.addAll("-Xjsr305=strict", "-Xannotation-default-target=param-property")
     }
 }
 
